@@ -256,10 +256,10 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({ mode, invoiceId, onClose }) =
         <div className="form-footer">
           <div className="footer-actions">
             {mode === 'edit' && (
-               <button className="btn-secondary" onClick={onClose}>Cancel</button>
+               <button className="btn-secondary" onClick={() => onClose()}>Cancel</button>
             )}
             {mode === 'create' && (
-               <button className="btn-secondary" style={{ marginRight: 'auto' }} onClick={onClose}>Discard</button>
+               <button className="btn-secondary" style={{ marginRight: 'auto' }} onClick={() => onClose()}>Discard</button>
             )}
             {mode === 'create' && (
               <button className="btn-dark" onClick={() => handleSubmit('draft')}>Save as Draft</button>

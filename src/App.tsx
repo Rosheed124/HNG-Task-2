@@ -1,4 +1,3 @@
-import React from 'react';
 import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
 import { ThemeProvider } from './context/ThemeContext';
