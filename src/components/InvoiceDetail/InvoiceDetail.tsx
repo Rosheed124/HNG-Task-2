@@ -3,7 +3,7 @@ import { InvoiceContext } from '../../context/InvoiceContext';
 import { ChevronLeft } from 'lucide-react';
 import StatusBadge from '../UI/StatusBadge';
 import Modal from '../UI/Modal';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import './InvoiceDetail.css';
 
 interface InvoiceDetailProps {
@@ -31,8 +31,8 @@ const InvoiceDetail: React.FC<InvoiceDetailProps> = ({ id, onBack, onEdit }) => 
     onBack();
   };
 
-  const formattedDate = format(new Date(invoice.createdAt), 'dd MMM yyyy');
-  const formattedPaymentDue = format(new Date(invoice.paymentDue), 'dd MMM yyyy');
+  const formattedDate = format(parseISO(invoice.createdAt), 'dd MMM yyyy');
+  const formattedPaymentDue = format(parseISO(invoice.paymentDue), 'dd MMM yyyy');
   
   const formattedTotal = new Intl.NumberFormat('en-GB', {
     style: 'currency',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Invoice } from '../../types';
 import StatusBadge from '../UI/StatusBadge';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import { ChevronRight } from 'lucide-react';
 
 interface InvoiceItemProps {
@@ -10,7 +10,7 @@ interface InvoiceItemProps {
 }
 
 const InvoiceItem: React.FC<InvoiceItemProps> = ({ invoice, onClick }) => {
-  const formattedDate = format(new Date(invoice.paymentDue), 'dd MMM yyyy');
+  const formattedDate = format(parseISO(invoice.paymentDue), 'dd MMM yyyy');
   const formattedTotal = new Intl.NumberFormat('en-GB', {
     style: 'currency',
     currency: 'GBP',
