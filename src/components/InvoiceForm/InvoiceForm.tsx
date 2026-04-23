@@ -171,7 +171,7 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({ mode, invoiceId, onClose }) =
   };
 
   return (
-    <div className="form-overlay" onClick={onClose}>
+    <div className="form-overlay" onClick={() => onClose()}>
       <div className="form-container" onClick={(e) => e.stopPropagation()}>
         <div className="form-header">
           <h1>
