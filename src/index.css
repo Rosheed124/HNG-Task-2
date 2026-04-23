@@ -1,0 +1,153 @@
+:root {
+  /* Colors */
+  --color-primary: #7C5DFA;
+  --color-primary-hover: #9277FF;
+  
+  --color-danger: #EC5757;
+  --color-danger-hover: #FF9797;
+
+  /* Light Theme Variables */
+  --bg-body: #F8F8FB;
+  --bg-sidebar: #373B53;
+  --bg-card: #FFFFFF;
+  --bg-input: #FFFFFF;
+  
+  --text-main: #0C0E16;
+  --text-secondary: #888EB0;
+  --text-tertiary: #7E88C3;
+  --border-input: #DFE3FA;
+
+  /* Status Colors */
+  --status-paid-text: #33D69F;
+  --status-paid-bg: rgba(51, 214, 159, 0.06);
+  --status-pending-text: #FF8F00;
+  --status-pending-bg: rgba(255, 143, 0, 0.06);
+  --status-draft-text: #373B53;
+  --status-draft-bg: rgba(55, 59, 83, 0.06);
+}
+
+[data-theme='dark'] {
+  --bg-body: #141625;
+  --bg-sidebar: #1E2139;
+  --bg-card: #1E2139;
+  --bg-input: #252945;
+
+  --text-main: #FFFFFF;
+  --text-secondary: #DFE3FA;
+  --text-tertiary: #888EB0;
+  --border-input: #252945;
+
+  --status-draft-text: #DFE3FA;
+  --status-draft-bg: rgba(223, 227, 250, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'League Spartan', sans-serif;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+}
+
+#root {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+@media (max-width: 1023px) {
+  #root {
+    flex-direction: column;
+  }
+}
+
+/* Typography Utility */
+h1 { font-size: 32px; font-weight: 700; line-height: 36px; letter-spacing: -1px; }
+h2 { font-size: 20px; font-weight: 700; line-height: 22px; letter-spacing: -0.63px; }
+h3 { font-size: 16px; font-weight: 700; line-height: 24px; letter-spacing: -0.8px; }
+h4 { font-size: 12px; font-weight: 700; line-height: 15px; letter-spacing: -0.25px; }
+.body-1 { font-size: 12px; font-weight: 500; line-height: 15px; letter-spacing: -0.25px; }
+.body-2 { font-size: 11px; font-weight: 500; line-height: 18px; letter-spacing: -0.23px; }
+
+/* Buttons */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  padding: 16px 24px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  background-color: #F9FAFE;
+  color: var(--text-tertiary);
+}
+[data-theme='dark'] .btn-secondary {
+  background-color: #252945;
+  color: #DFE3FA;
+}
+.btn-secondary:hover {
+  background-color: #DFE3FA;
+}
+[data-theme='dark'] .btn-secondary:hover {
+  background-color: #FFFFFF;
+  color: #DFE3FA; /* Wait, dark theme hover is usually lighter but maybe white */
+}
+
+.btn-dark {
+  background-color: #373B53;
+  color: #888EB0;
+}
+[data-theme='dark'] .btn-dark {
+  background-color: #373B53;
+  color: #DFE3FA;
+}
+.btn-dark:hover {
+  background-color: #0C0E16;
+}
+[data-theme='dark'] .btn-dark:hover {
+  background-color: #1E2139;
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  color: white;
+}
+.btn-danger:hover {
+  background-color: var(--color-danger-hover);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-tertiary);
+  border-radius: 4px;
+}

@@ -1,0 +1,225 @@
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 103px; /* Sidebar width */
+  width: calc(100vw - 103px);
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+  display: flex;
+  transition: opacity 0.3s ease;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 719px;
+  background-color: var(--bg-card);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 56px;
+  border-radius: 0 20px 20px 0;
+  position: relative;
+  overflow: hidden;
+  transform: translateX(-100%);
+  animation: slideIn 0.3s forwards ease-out;
+}
+
+[data-theme='dark'] .form-container {
+  background-color: #141625;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+.form-header {
+  margin-bottom: 48px;
+}
+
+.form-header h1 {
+  font-size: 24px;
+}
+
+.form-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 16px;
+  margin-right: -16px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-section h3 {
+  color: var(--color-primary);
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.form-row {
+  display: flex;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  position: relative;
+}
+
+.form-group label {
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group input, .form-group select {
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid var(--border-input);
+  background-color: var(--bg-input);
+  color: var(--text-main);
+  padding: 0 20px;
+  font-weight: 700;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus {
+  border-color: var(--color-primary);
+}
+
+.form-group.has-error label {
+  color: var(--color-danger);
+}
+.form-group.has-error input {
+  border-color: var(--color-danger);
+}
+.error-msg {
+  color: var(--color-danger);
+}
+
+/* Item List */
+.item-list-header {
+  font-size: 18px;
+  color: #777F98;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.item-row {
+  display: grid;
+  grid-template-columns: 214px 46px 100px 1fr 16px;
+  gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 16px;
+}
+
+.item-total {
+  font-weight: 700;
+  color: var(--text-tertiary);
+  margin-bottom: 15px; /* Aligns with input text */
+}
+
+.btn-delete-item {
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 15px;
+}
+.btn-delete-item:hover {
+  color: var(--color-danger);
+}
+
+.btn-add-item {
+  width: 100%;
+  background-color: #F9FAFE;
+  color: var(--text-tertiary);
+  border-radius: 24px;
+  height: 48px;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background-color 0.2s;
+}
+[data-theme='dark'] .btn-add-item {
+  background-color: #252945;
+  color: #DFE3FA;
+}
+.btn-add-item:hover {
+  background-color: #DFE3FA;
+}
+[data-theme='dark'] .btn-add-item:hover {
+  background-color: #1E2139;
+}
+
+.form-footer {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  box-shadow: 0 -10px 20px -10px rgba(0,0,0,0.05);
+}
+
+.footer-actions {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+@media (max-width: 1023px) {
+  .form-overlay {
+    top: 80px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 80px);
+  }
+}
+
+@media (max-width: 767px) {
+  .form-container {
+    padding: 32px 24px;
+    border-radius: 0;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .item-row {
+    grid-template-columns: 64px 1fr 1fr 16px;
+    grid-template-rows: auto auto;
+  }
+  .item-row .form-group:first-child {
+    grid-column: 1 / 5;
+  }
+  .item-row .item-total {
+    margin-top: 10px;
+  }
+  .item-row .btn-delete-item {
+    margin-top: 10px;
+  }
+  .form-footer {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}

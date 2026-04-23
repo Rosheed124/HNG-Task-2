@@ -1,0 +1,47 @@
+.status-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 104px;
+  height: 40px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  text-transform: capitalize;
+}
+
+.status-badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Paid */
+.status-badge.paid {
+  background-color: var(--status-paid-bg);
+  color: var(--status-paid-text);
+}
+.status-badge.paid .dot {
+  background-color: var(--status-paid-text);
+}
+
+/* Pending */
+.status-badge.pending {
+  background-color: var(--status-pending-bg);
+  color: var(--status-pending-text);
+}
+.status-badge.pending .dot {
+  background-color: var(--status-pending-text);
+}
+
+/* Draft */
+.status-badge.draft {
+  background-color: var(--status-draft-bg);
+  color: var(--status-draft-text);
+}
+.status-badge.draft .dot {
+  background-color: var(--status-draft-text);
+}

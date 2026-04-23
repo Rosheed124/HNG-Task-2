@@ -1,0 +1,26 @@
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 72px 24px;
+  margin-left: 103px;
+}
+
+.main-wrapper {
+  width: 100%;
+  max-width: 730px;
+  position: relative;
+}
+
+@media (max-width: 1023px) {
+  .main-content {
+    margin-left: 0;
+    padding: 56px 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-content {
+    padding: 32px 24px;
+  }
+}

@@ -1,0 +1,225 @@
+.invoice-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.invoice-list-header-left h1 {
+  margin-bottom: 8px;
+}
+
+.invoice-list-header-left p {
+  color: var(--text-secondary);
+}
+
+.invoice-list-header-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.filter-container {
+  position: relative;
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+}
+
+.filter-dropdown {
+  position: absolute;
+  top: 40px;
+  left: -20px;
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
+  padding: 24px;
+  width: 192px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 10;
+}
+[data-theme='dark'] .filter-dropdown {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-main);
+}
+
+.filter-label:hover .checkbox {
+  border-color: var(--color-primary);
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  background-color: var(--border-input);
+  border: 1px solid transparent;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+[data-theme='dark'] .checkbox {
+  background-color: #1E2139;
+}
+.checkbox.checked {
+  background-color: var(--color-primary);
+}
+
+.btn-new {
+  padding: 8px 16px 8px 8px;
+  gap: 16px;
+}
+.btn-new-icon {
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.invoices-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.invoice-item {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.invoice-item:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.1), inset 0 0 0 1px var(--color-primary);
+}
+
+.invoice-item-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex: 1;
+}
+
+.invoice-item-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.invoice-id {
+  font-weight: 700;
+  font-size: 15px;
+}
+.hash {
+  color: var(--text-tertiary);
+}
+
+.invoice-date, .invoice-name {
+  color: var(--text-secondary);
+}
+[data-theme='dark'] .invoice-name {
+  color: white;
+}
+
+.invoice-total {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.chevron {
+  color: var(--color-primary);
+}
+
+.show-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .invoice-list-header {
+    margin-bottom: 32px;
+  }
+  .invoice-list-header-right {
+    gap: 16px;
+  }
+  .btn-new {
+    padding: 6px 14px 6px 6px;
+    gap: 8px;
+  }
+  .hide-mobile {
+    display: none;
+  }
+  .show-mobile {
+    display: block;
+  }
+  .invoice-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 24px;
+  }
+  .invoice-item-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
+  .invoice-item-left .invoice-name {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+  }
+  .invoice-item-right {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 24px;
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+  }
+  .chevron {
+    display: none;
+  }
+  .invoice-item {
+    position: relative;
+    padding: 24px;
+  }
+  .invoice-item-right .invoice-total {
+    position: absolute;
+    left: 24px;
+    bottom: 32px;
+  }
+  .invoice-item-left .invoice-date {
+    position: absolute;
+    left: 24px;
+    bottom: 56px;
+  }
+}
